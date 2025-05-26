@@ -34,7 +34,7 @@ class LoggingInterceptor(grpc.ServerInterceptor):
     def intercept_service(self, continuation, handler_call_details):
         method = handler_call_details.method
         logging.info(f"Interceptor Logging: gRPC call: {method}")
-        return continuation(handler_call_details)
+        return continuation(handler_call_details) # meaning gRPC can be continued
 
 
 class ItemServiceServicer(myitems_pb2_grpc.ItemServiceServicer): # Inherit base class from gRPC
@@ -51,8 +51,8 @@ class ItemServiceServicer(myitems_pb2_grpc.ItemServiceServicer): # Inherit base 
             return item
         else:
             logging.info(f"Item with itemId {itemIdToFind} not found\n")
-            context.set_code(grpc.StatusCode.NOT_FOUND) # send to client
-            context.set_details(f"Item with ID {itemIdToFind} not found") # send to client
+            context.set_code(grpc.StatusCode.NOT_FOUND) # send to gRPC, client can use
+            context.set_details(f"Item with ID {itemIdToFind} not found") # send to gRPC, client can use
             return myitems_pb2.ItemInfo()
 
     

@@ -12,7 +12,7 @@ def RunClient():
     
     channel = grpc.insecure_channel('localhost:50051')
     
-    stub = myitems_pb2_grpc.ItemServiceStub(channel)
+    stub = myitems_pb2_grpc.ItemServiceStub(channel) # object represents grpc, use this to access the methods
     logging.info("*** Client connected to server at localhost:50051\n")
 
 
