@@ -78,15 +78,15 @@ def RunPerformanceTest():
 
         channel = grpc.insecure_channel(GRPC_SERVER_URL, options=client_options)
         stub = myitems_pb2_grpc.ItemServiceStub(channel)
-        
+
+        startTime = time.perf_counter()
+
         stub.AddItemPerformanceTest(myitems_pb2.ItemInfo(itemId=ITEM_ID_TO_REQUEST, itemName=sentString))
         #logging.info(f"*** gRPC: Added string * {case[0]}\n")
  
         successfulCalls = 0
         failedCalls = 0
         
-        startTime = time.perf_counter()
-
         for _ in range(case[1]):
             GetItemByIdMethodResponse = stub.GetItemById(myitems_pb2.ItemIdRequest(itemId=ITEM_ID_TO_REQUEST)) 
             
@@ -121,14 +121,14 @@ def RunPerformanceTest():
                     "name": sentString     
             }
 
+            startTime = time.perf_counter()
+
             session.post(REST_ENDPOINT_URL, json=itemPayloadRest)
 
             #logging.info(f"*** REST: Added string * {case[0]}\n")
             
             successfulCalls = 0
             failedCalls = 0
-
-            startTime = time.perf_counter()
 
             for _ in range(case[1]):
                 try:

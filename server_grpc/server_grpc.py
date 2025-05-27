@@ -10,7 +10,7 @@ import logging
 ENABLE_LOGGING_INTERCEPTOR = False
 ENABLE_REFLECTION = False
 
-NEW_MAX_MESSAGE_SIZE = 10 * 1024 * 1024
+NEW_MAX_MESSAGE_SIZE = 10 * 1024 * 1024 # 10 MB
 
 if ENABLE_REFLECTION:
     from grpc_reflection.v1alpha import reflection
