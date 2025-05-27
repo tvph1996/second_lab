@@ -152,7 +152,7 @@ def Serve():
     
     try:
         while True:
-            time.sleep(3600)
+            time.sleep(3600) # keep the main thread alive but not use CPU
     except KeyboardInterrupt:
         server.stop(0)
         logging.info("*** Server shut down\n")
