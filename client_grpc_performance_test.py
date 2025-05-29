@@ -2,8 +2,8 @@ import grpc
 import requests
 import time
 import logging
-import proto.myitems_pb2 as myitems_pb2
-import proto.myitems_pb2_grpc as myitems_pb2_grpc
+import myitems_pb2 as myitems_pb2
+import myitems_pb2_grpc as myitems_pb2_grpc
 
 
 # CONFIGURATIONS

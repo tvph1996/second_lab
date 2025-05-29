@@ -1,8 +1,8 @@
 import grpc
 import time
 import logging
-import proto.myitems_pb2 as myitems_pb2
-import proto.myitems_pb2_grpc as myitems_pb2_grpc
+import myitems_pb2 as myitems_pb2
+import myitems_pb2_grpc as myitems_pb2_grpc
 
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
