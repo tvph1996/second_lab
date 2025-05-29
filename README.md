@@ -18,7 +18,7 @@ gRPC source files is compiled locally, to recompile:\
 \
 \
 There are 2 clients, to run the one testing the gRPC-server:\
-```python ./client_grpc_features.py```
+```python client_grpc_features.py```
 
 To run the one testing the performance of gRPC and REST-server:\
 ```python client_grpc_performance_test.py```
